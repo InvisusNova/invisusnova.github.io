@@ -127,3 +127,10 @@
   .btn-large { width: 100%; justify-content: center; }
 }
 
+
+/* Fix for Vertical Scroll Getting Stuck on Touch/Mouse */
+.products-carousel, .screenshot-gallery {
+    overflow-y: hidden !important;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: none;
+}
