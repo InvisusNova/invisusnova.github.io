@@ -1,24 +1,35 @@
 /* Main JS — Navigation, Scroll Animations, Typing Effect, Utilities */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --- Scroll Progress Bar --- */
+  /* --- Single scroll handler via requestAnimationFrame --- */
   const scrollProgress = document.querySelector('.scroll-progress');
-  if (scrollProgress) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
+  const navbar = document.querySelector('.navbar');
+  let ticking = false;
+
+  function onScroll() {
+    const scrollTop = window.scrollY;
+
+    // Scroll Progress Bar
+    if (scrollProgress) {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? scrollTop / docHeight : 0;
       scrollProgress.style.transform = `scaleX(${progress})`;
-    });
+    }
+
+    // Navbar scroll effect
+    if (navbar) {
+      navbar.classList.toggle('scrolled', scrollTop > 50);
+    }
+
+    ticking = false;
   }
 
-  /* --- Navbar Scroll Effect --- */
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
 
   /* --- Mobile Navigation --- */
   const hamburger = document.querySelector('.hamburger');
@@ -112,10 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* --- Particles --- */
+  /* --- Particles (reduced count for performance) --- */
   const particlesContainer = document.querySelector('.particles');
   if (particlesContainer) {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 15; i++) {
       const particle = document.createElement('div');
       particle.classList.add('particle');
       particle.style.left = Math.random() * 100 + '%';

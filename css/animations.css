@@ -14,13 +14,12 @@
 
 /* Stagger children */
 .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
-.stagger.visible > *:nth-child(2) { transition-delay: 80ms; }
-.stagger.visible > *:nth-child(3) { transition-delay: 160ms; }
-.stagger.visible > *:nth-child(4) { transition-delay: 240ms; }
-.stagger.visible > *:nth-child(5) { transition-delay: 320ms; }
-.stagger.visible > *:nth-child(6) { transition-delay: 400ms; }
-.stagger.visible > * { opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(2) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
 
 /* Typing cursor */
 .typing-cursor { display: inline-block; width: 3px; height: 1em; background: var(--brand-primary); margin-left: 4px; animation: blink 0.8s infinite; vertical-align: text-bottom; }
@@ -30,7 +29,7 @@
 .gradient-text { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
 /* Floating animation */
-.float { animation: float 6s ease-in-out infinite; }
+.float { animation: float 6s ease-in-out infinite; will-change: transform; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
 /* Pulse glow */
@@ -42,12 +41,12 @@
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 /* Hero particles */
-.particles { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
-.particle { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.15); border-radius: 50%; animation: particleFloat linear infinite; }
+.particles { position: absolute; inset: 0; overflow: hidden; z-index: 1; contain: strict; pointer-events: none; }
+.particle { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.15); border-radius: 50%; animation: particleFloat linear infinite; will-change: transform, opacity; }
 @keyframes particleFloat { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; } }
 
 /* Grid background pattern */
-.grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; z-index: 0; mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); }
+.grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; z-index: 0; mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); pointer-events: none; }
 
 /* Page transition */
 .page-transition { animation: pageIn 0.4s ease; }

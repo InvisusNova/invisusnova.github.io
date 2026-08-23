@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    Page-Specific Styles
    ============================================ */
 
@@ -8,9 +8,8 @@
 .brand-statement .split-image img { width: 100%; height: 400px; object-fit: cover; }
 
 /* --- Homepage: Products Carousel --- */
-.products-carousel { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 20px 0; }
-
-.products-carousel .product-card { width: 100%; }
+.products-carousel { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; padding: 20px 0; }
+.products-carousel .product-card { min-width: 280px; flex: 1 1 280px; max-width: 360px; }
 
 /* --- Homepage: Tools Promo --- */
 .tools-promo { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(0,102,255,0.08)); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 64px; text-align: center; position: relative; overflow: hidden; }
@@ -110,88 +109,6 @@
   .step-card { padding-left: 0; padding-top: 70px; }
   .step-card::before { left: 0; }
   .palette-display { height: 150px; }
-  .products-carousel .product-card { min-width: 280px; }
+  .products-carousel .product-card { min-width: 100%; flex: 1 1 100%; max-width: 100%; }
   .tools-promo { padding: 40px 24px; }
 }
-
-/* ============================================
-   Comprehensive Responsive Overrides
-   (Auto-Adjust for all devices)
-   ============================================ */
-
-/* Global Resets for Mobile */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-.container, .hero-content {
-  max-width: 100vw;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-/* Tablet & Smaller Desktop Auto-Adjust (Max: 1024px) */
-@media (max-width: 1024px) {
-  .product-card { padding: 32px; }
-  .tools-promo { padding: 48px 32px; }
-  .newsletter { padding: 48px 32px; }
-  .split-image img { height: auto; aspect-ratio: 16/9; }
-}
-
-/* Tablet Auto-Adjust (Max: 768px) */
-@media (max-width: 768px) {
-  .product-card { padding: 24px; }
-  .blog-card-body { padding: 20px; }
-  .tool-card { padding: 24px; }
-  .split-image img { height: auto; aspect-ratio: 16/9; }
-  .newsletter, .tools-promo { padding: 32px 20px; }
-  .contact-grid, .features-grid, .footer-grid { gap: 24px; }
-  .hero-content h1 { font-size: clamp(2rem, 8vw, 3rem) !important; }
-  .section { padding: 48px 0; }
-  .section-header h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
-  
-  /* Fix Carousel Overflow/Cut-off */
-  .products-carousel .product-card { 
-    min-width: min(300px, calc(100vw - 48px)) !important; 
-    margin-right: 16px;
-  }
-  .products-carousel {
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 0;
-  }
-  
-  /* Fix layout bugs with flex */
-  .stats-row { gap: 24px; flex-direction: column; }
-}
-
-/* Small Mobile Auto-Adjust (Max: 480px) */
-@media (max-width: 480px) {
-  .hero-content h1 { font-size: 2.2rem !important; }
-  .hero-subtitle { font-size: 1rem; margin-bottom: 24px; }
-  .btn { padding: 12px 24px; font-size: 0.95rem; width: 100%; justify-content: center; text-align: center; margin-bottom: 12px; }
-  .hero-ctas { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-  
-  .product-card-icon { width: 64px; height: 64px; }
-  .stat-number { font-size: 2rem; }
-  
-  /* Fix Product Carousel specific padding for small mobile */
-  .products-carousel .product-card { 
-    min-width: min(280px, calc(100vw - 32px)) !important; 
-    padding: 20px !important;
-  }
-  .products-carousel {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  
-  /* Text adjustments */
-  .product-card h3 { font-size: 1.25rem; }
-  .product-card p { font-size: 0.9rem; }
-}
-
-
-
-
-
