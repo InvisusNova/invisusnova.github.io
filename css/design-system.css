@@ -55,3 +55,18 @@ img { max-width: 100%; height: auto; display: block; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
 :focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 2px; }
 
+
+
+/* Global: Prevent nested scroll containers from trapping vertical page scroll */
+* {
+  overscroll-behavior: auto;
+}
+[style*="overflow"], .card-glass, .tool-card, .feature-card, .stat-card, .blog-card, .product-card {
+  overflow: visible !important;
+  overflow-x: visible !important; 
+  overflow-y: visible !important;
+}
+/* Preserve hidden overflow only for visual clipping (not scroll) */
+.hero, .page-hero, .product-hero, .tools-promo, .product-card-icon, .blog-card-image, .screenshot-item, .strength-meter, .palette-display, .brand-statement .split-image, .product-hero-icon {
+  overflow: hidden !important;
+}

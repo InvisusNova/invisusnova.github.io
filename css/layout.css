@@ -68,9 +68,9 @@
 .blog-card-link { font-size: 0.9rem; font-weight: 600; color: var(--brand-primary); }
 
 /* Screenshot Gallery */
-.screenshot-gallery { display: flex; gap: 24px; overflow-x: auto; padding: 20px 0;  -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; padding: 20px 0; }
 .screenshot-gallery::-webkit-scrollbar { display: none; }
-.screenshot-item { flex-shrink: 0; width: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border);  transition: transform var(--transition-base); box-shadow: var(--shadow-md); }
+.screenshot-item { width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border);  transition: transform var(--transition-base); box-shadow: var(--shadow-md); }
 .screenshot-item:hover { transform: scale(1.03); }
 .screenshot-item img { width: 100%; height: auto; }
 
@@ -128,9 +128,6 @@
 }
 
 
-/* Fix for Vertical Scroll Getting Stuck on Touch/Mouse */
-.products-carousel, .screenshot-gallery {
-    overflow-y: hidden !important;
-    overscroll-behavior-x: contain;
-    overscroll-behavior-y: none;
-}
+
+
+
