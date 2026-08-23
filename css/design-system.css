@@ -1,0 +1,56 @@
+/* ============================================
+   InvisusNova Design System
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --brand-primary: #0066FF;
+  --brand-primary-hover: #0052CC;
+  --brand-secondary: #3FB950;
+  --brand-accent: #7C3AED;
+  --brand-gradient: linear-gradient(135deg, #0066FF 0%, #7C3AED 50%, #3FB950 100%);
+  --bg-dark: #0A0A0A;
+  --bg-card: #111111;
+  --bg-elevated: #1A1A1A;
+  --bg-surface: #141414;
+  --glass-bg: rgba(255,255,255,0.03);
+  --glass-bg-hover: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-border-hover: rgba(255,255,255,0.15);
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-muted: #666666;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 40px rgba(0,102,255,0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --container-max: 1200px;
+  --navbar-height: 72px;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--navbar-height); -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); background: var(--bg-dark); color: var(--text-secondary); line-height: 1.7; font-size: 16px; overflow-x: hidden; }
+h1,h2,h3,h4,h5,h6 { color: var(--text-primary); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+p { color: var(--text-secondary); line-height: 1.8; max-width: 65ch; }
+a { color: var(--brand-primary); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--brand-primary-hover); }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: rgba(0,102,255,0.3); color: var(--text-primary); }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 2px; }
