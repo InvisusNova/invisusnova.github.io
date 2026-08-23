@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    Page-Specific Styles
    ============================================ */
 
@@ -8,9 +8,9 @@
 .brand-statement .split-image img { width: 100%; height: 400px; object-fit: cover; }
 
 /* --- Homepage: Products Carousel --- */
-.products-carousel { display: flex; gap: 24px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.products-carousel { display: flex; gap: 24px; overflow-x: auto; padding: 20px 0;  -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .products-carousel::-webkit-scrollbar { display: none; }
-.products-carousel .product-card { min-width: 320px; scroll-snap-align: start; flex-shrink: 0; }
+.products-carousel .product-card { min-width: 320px;  flex-shrink: 0; }
 
 /* --- Homepage: Tools Promo --- */
 .tools-promo { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(0,102,255,0.08)); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 64px; text-align: center; position: relative; overflow: hidden; }
@@ -190,3 +190,4 @@ html, body {
   .product-card h3 { font-size: 1.25rem; }
   .product-card p { font-size: 0.9rem; }
 }
+
